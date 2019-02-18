@@ -2,34 +2,47 @@ var mongoose = require('mongoose');
 
 var Schema = mongoose.Schema;
 
-var flightSchema = new Schema( {
-    airline: {
+var destinationSchema = new Schema ({
+    airport: {
         type: String,
-        enum: ['American', 'Southwest', 'United']
+        enum: ['AUS', 'DAL', 'LAX', 'SEA']
     },
-    flightNo: {
-        type: Number,
-        min: 10,
-        max: 9999,
-        required: true
-    },
-    departs: {
-        type: Date,
-        default: function () {
-            let date = new Date();
-            let year = date.getFullYear();
-            let month = date.getMonth();
-            let day = date.getDate();
-            let hours = date.getHours();
-            let minutes = date.getMinutes();
-            let seconds = date.getSeconds();
-            let futureDate = new Date(year + 1, month, day, hours, minutes, seconds);
-            return futureDate;
-        }
-    },
-    destination: {
-        type: String
+    arrival: {
+        type: Date
     }
-});
-
-module.exports = mongoose.model('Flight', flightSchema)
+ });
+ 
+ var flightSchema = new Schema( {
+     airline: {
+         type: String,
+         enum: ['American', 'Southwest', 'United']
+        },
+        flightNo: {
+            type: Number,
+            min: 10,
+            max: 9999,
+            required: true
+        },
+        departs: {
+            type: Date,
+            default: function () {
+                var date = new Date();
+                return new Date(date.setFullYear(date.getFullYear() + 1));
+            }
+        },
+        airport: {
+            type: String,
+            enum: ['AUS', 'DAL', 'LAX', 'SEA'],
+            default: 'SEA'
+        },
+        destination: {
+            type: [destinationSchema]
+        }
+    });
+            
+const Flight = mongoose.model('Flight', flightSchema);
+const Destination = mongoose.model('destinationFlight', destinationSchema);
+module.exports = {
+    Flight,
+    Destination
+}

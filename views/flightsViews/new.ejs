@@ -5,18 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>New Flight</title>
 </head>
 <body>
+    <h1 id="myHeader">Add a New Flight</h1>
     <form action="/flights" method="POST">
+        <label>Flight Number</label>
         <select type="text" name="airline">
             <option value="American">American</option>
             <option value="Southwest">Southwest</option>
             <option value="United">United</option>
         </select>
+        <br>
+        <label>Flight Number</label>
         <input type="number" name="flightNo" min="10" max="9999">
-        <input type="text" name="departs">
+        <br>
+        <label>Flight Departure Time</label>
+        <input type="date" name="departs">
+        <br>
+        <label>Flight Destination</label>
         <input type="text" name="destination">
+        <br>
         <input type="submit" value="add flight">
 
     </form>

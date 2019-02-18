@@ -1,8 +1,17 @@
 body {
-  padding: 50px;
+  background: url(https://i.imgur.com/dYaC6Bq.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 100px 0px 0px 0px;
+  padding: 10px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-
+h1 {
+  margin: 10px;
+}
+table {
+  text-align: left;
+}
 a {
   color: #00B7FF;
 }
