@@ -12,6 +12,15 @@ h1 {
 table {
   text-align: left;
 }
+tbody {
+  background: rgb(176, 96, 33,.5);
+}
+form {
+  background: rgb(176, 96, 33,.5);
+}
+input {
+  border-radius: 8px;
+}
 a {
   color: #00B7FF;
 }

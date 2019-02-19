@@ -10,11 +10,19 @@
 <body>
     <h1 id="myHeader">Add a New Flight</h1>
     <form action="/flights" method="POST">
-        <label>Flight Number</label>
+        <label>Airline</label>
         <select type="text" name="airline">
             <option value="American">American</option>
             <option value="Southwest">Southwest</option>
             <option value="United">United</option>
+        </select>
+        <br>
+        <label>Airport</label>
+        <select type="text" name="airport">
+            <option value="AUS">AUS</option>
+            <option value="DAL">DAL</option>
+            <option value="LAX">LAX</option>
+            <option value="SEA">SEA</option>
         </select>
         <br>
         <label>Flight Number</label>
@@ -22,6 +30,9 @@
         <br>
         <label>Flight Departure Time</label>
         <input type="date" name="departs">
+        <br>
+        <label>Flight Arrival Time</label>
+        <input type="date" name="arrival">
         <br>
         <label>Flight Destination</label>
         <input type="text" name="destination">
