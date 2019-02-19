@@ -6,7 +6,8 @@ module.exports = {
     index,
     new: newForm,
     create,
-    showFlights
+    showFlights,
+    delete: deletedFlight
 }
 
 function create(req, res) {
@@ -51,4 +52,13 @@ function showFlights(req, res) {
         })
     })
 }
-
+function deletedFlights (req, res) {
+    Flights.findByIdAndRemove(req.params.id, function(error, deletedFlight){
+    if(error){
+        console.log(error)
+    } else {
+        console.log(deletedFlight, 'This Flight was deleted')
+        res.redirect('/flights')
+    }
+})
+}
